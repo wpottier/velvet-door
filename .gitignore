@@ -1,0 +1,36 @@
+# --- Unreal Engine ---
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+
+# --- Unreal Engine user-specific ---
+*.suo
+*.user
+*.userprefs
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.VC.opendb
+
+# --- IDE / OS ---
+.vs/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# --- Logs / temp ---
+*.log
+
+# --- Rider / JetBrains ---
+*.DotSettings.user
+
+# --- Python / misc (optional) ---
+__pycache__/
+*.pyc
+
+# --- Optional: ignore packaged builds ---
+PackagedBuilds/
+Releases/
