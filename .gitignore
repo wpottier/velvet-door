@@ -4,6 +4,7 @@ DerivedDataCache/
 Intermediate/
 Saved/
 Build/
+Plugins/
 
 # --- Unreal Engine user-specific ---
 *.suo
@@ -34,3 +35,14 @@ __pycache__/
 # --- Optional: ignore packaged builds ---
 PackagedBuilds/
 Releases/
+Windows/
+Linux/
+LinuxArm64/
+Mac/
+Android/
+IOS/
+
+# --- Visual Studio generated (regenerable) ---
+*.sln
+*.vcxproj
+*.vcxproj.*
