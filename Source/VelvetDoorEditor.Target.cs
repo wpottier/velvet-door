@@ -11,5 +11,8 @@ public class VelvetDoorEditorTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.V6;
 
 		ExtraModuleNames.AddRange( new string[] { "VelvetDoor" } );
-	}
+
+        // Enable Discord integration for the editor as well
+        ProjectDefinitions.Add("ONLINE_SUBSYSTEM_EOS_ENABLE_DISCORD=1");
+    }
 }
