@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 
 #include "VelvetSocialViewModel.h"
 
@@ -35,6 +33,8 @@ void UVelvetSocialViewModel::SetFriendCode(const FString& InValue)
 
 void UVelvetSocialViewModel::AddFriend(UVelvetFriendViewModel* InFriend)
 {
+	if (!InFriend) return;
+
     FriendList.Add(InFriend);
     UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(FriendList);
 
@@ -46,14 +46,19 @@ void UVelvetSocialViewModel::AddFriend(UVelvetFriendViewModel* InFriend)
 
 void UVelvetSocialViewModel::RemoveFriend(const FUniqueNetId& UserId)
 {
+	UVelvetSocialViewModel::RemoveFriend(UserId.ToString());
+}
+
+void UVelvetSocialViewModel::RemoveFriend(const FString& UserId)
+{
     int32 Index = FriendList.IndexOfByPredicate([&](const TObjectPtr<UVelvetFriendViewModel>& F)
     {
-        return F && F->UserId == UserId.ToString();
+        return F && F->UserId == UserId;
     });
 
     if (Index != INDEX_NONE)
     {
-		FriendList[Index]->RemoveAllFieldValueChangedDelegates(this);
+        FriendList[Index]->RemoveAllFieldValueChangedDelegates(this);
         FriendList.RemoveAt(Index);
 
         UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(FriendList);
@@ -81,22 +86,10 @@ void UVelvetSocialViewModel::OnFriendPresenceChanged(UObject* Sender, UE::FieldN
     }
 }
 
-void UVelvetSocialViewModel::RemoveFriendByNativeId(const FString& NativeId)
-{
-    FriendList.RemoveAll([&](const TObjectPtr<UVelvetFriendViewModel>& F)
-        {
-            if (F && F->UserId == NativeId)
-            {
-                F->RemoveAllFieldValueChangedDelegates(this);
-                return true;
-            }
-            return false;
-        });
-    UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(FriendList);
-}
-
 void UVelvetSocialViewModel::AddInboundInvitation(UVelvetInboundInvitationViewModel* InInvitation)
 {
+    if (!InInvitation) return;
+
     InboundFriendInvitations.Add(InInvitation);
     UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(InboundFriendInvitations);
 }

@@ -4,6 +4,7 @@
 #include "MVVMGameSubsystem.h"
 #include "VelvetSocialViewModel.h"
 #include "VelvetFriendSearchViewModel.h"
+#include "VelvetPartyViewModel.h"
 #include "VelvetMVVMSubsystem.generated.h"
 
 UCLASS()
@@ -19,6 +20,9 @@ public:
 
     UFUNCTION(BlueprintCallable, Category = "Velvet|MVVM")
     UVelvetFriendSearchViewModel* GetFriendSearchViewModel();
+
+    UFUNCTION(BlueprintCallable, Category = "Velvet|MVVM")
+    UVelvetPartyViewModel* GetPartyViewModel();
 
     UFUNCTION(BlueprintCallable, Category = "Velvet|MVVM",
         meta = (DeterminesOutputType = "ViewModelClass", DynamicOutputParam = "ReturnValue"))

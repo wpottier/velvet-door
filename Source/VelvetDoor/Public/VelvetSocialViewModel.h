@@ -43,8 +43,9 @@ public:
 
     void AddFriend(UVelvetFriendViewModel* InFriend);
     void RemoveFriend(const FUniqueNetId& UserId);
+    void RemoveFriend(const FString& UserId);
     void ClearFriends();
-    void RemoveFriendByNativeId(const FString& NativeId);
+    
 
     void AddInboundInvitation(UVelvetInboundInvitationViewModel* InInvitation);
     void RemoveInboundInvitation(const FString& SenderId);

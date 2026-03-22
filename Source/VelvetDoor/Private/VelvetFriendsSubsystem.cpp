@@ -155,7 +155,7 @@ void UVelvetFriendsSubsystem::LoadFriends()
     }
     for (const FString& Id : ToRemove)
     {
-        VM->RemoveFriendByNativeId(Id);
+        VM->RemoveFriend(Id);
     }
 
     // 2. Ajouter ou mettre à jour

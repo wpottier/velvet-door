@@ -14,6 +14,7 @@ void UVelvetMVVMSubsystem::Initialize(FSubsystemCollectionBase& Collection)
     // Créer et enregistrer les VMs principales
 	CreateAndRegisterViewModel(UVelvetSocialViewModel::StaticClass(), TEXT("Social"));
 	CreateAndRegisterViewModel(UVelvetFriendSearchViewModel::StaticClass(), TEXT("FriendSearch"));
+    CreateAndRegisterViewModel(UVelvetPartyViewModel::StaticClass(), TEXT("Party"));
 }
 
 UVelvetSocialViewModel* UVelvetMVVMSubsystem::GetSocialViewModel()
@@ -24,6 +25,11 @@ UVelvetSocialViewModel* UVelvetMVVMSubsystem::GetSocialViewModel()
 UVelvetFriendSearchViewModel* UVelvetMVVMSubsystem::GetFriendSearchViewModel()
 {
     return GetViewModelTyped<UVelvetFriendSearchViewModel>(TEXT("FriendSearch"));
+}
+
+UVelvetPartyViewModel* UVelvetMVVMSubsystem::GetPartyViewModel()
+{
+    return GetViewModelTyped<UVelvetPartyViewModel>(TEXT("Party"));
 }
 
 UMVVMViewModelBase* UVelvetMVVMSubsystem::GetViewModel(

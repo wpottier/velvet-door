@@ -7,7 +7,7 @@
 #include "VelvetSocialViewModel.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Interfaces/OnlineIdentityInterface.h"
-#include <Interfaces/OnlinePresenceInterface.h>
+#include "Interfaces/OnlinePresenceInterface.h"
 
 
 void UVelvetAuthSubsystem::Initialize(FSubsystemCollectionBase& Collection)
